@@ -2,6 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function() {
+        const redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>Excellence Academy - Inspiring Minds, Shaping Futures</title>
     <meta name="description" content="Excellence Academy is a premier educational institution dedicated to academic excellence, character development, and preparing students for success. Explore our programs, faculty, events, and vibrant campus life." />

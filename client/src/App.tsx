@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Router as WouterRouter } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -19,9 +19,11 @@ import AdminGallery from "@/pages/admin/gallery";
 import AdminContacts from "@/pages/admin/contacts";
 import NotFound from "@/pages/not-found";
 
+import { useBaseLocation } from "@/hooks/use-base-location";
+
 function Router() {
   return (
-    <Switch>
+    <Switch base={import.meta.env.BASE_URL} hook={useBaseLocation}>
       <Route path="/" component={Home} />
       <Route path="/academics" component={Academics} />
       <Route path="/faculty" component={FacultyPage} />
@@ -41,14 +43,16 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="light">
-        <TooltipProvider>
-          <Router />
-          <Toaster />
-        </TooltipProvider>
-      </ThemeProvider>
-    </QueryClientProvider>
+    <WouterRouter base={import.meta.env.BASE_URL}>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider defaultTheme="light">
+          <TooltipProvider>
+            <Router />
+            <Toaster />
+          </TooltipProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </WouterRouter>
   );
 }
 
