@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import heroImage from "@assets/generated_images/Campus_hero_background_image_183ac4e4.png";
+import heroImage from "@assets/generated_images/Science_education_classroom_scene_3058539a.png"; // Temporarily using science image
 
 export function HeroSection() {
   return (

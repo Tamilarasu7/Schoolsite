@@ -19,7 +19,7 @@ import {
 import type { Event, Program } from "@shared/schema";
 import scienceImage from "@assets/generated_images/Science_education_classroom_scene_3058539a.png";
 import sportsImage from "@assets/generated_images/Sports_and_athletics_scene_782b913e.png";
-import artsImage from "@assets/generated_images/Arts_and_theater_program_dfe6d1ed.png";
+import artsImage from "@assets/generated_images/Science_education_classroom_scene_3058539a.png"; // Temporarily using science image
 
 export default function Home() {
   const { data: programs = [] } = useQuery<Program[]>({
